@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View } from 'react-native';
 import PropTypes from "prop-types";
 
-import { default as DefaultErrorList } from "./ErrorList";
+import DefaultErrorList from "./ErrorList";
 import {
   getDefaultFormState,
   shouldRender,
