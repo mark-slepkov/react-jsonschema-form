@@ -191,11 +191,10 @@ export default class Form extends Component {
         />
         {children
           ? children
-          : <p>
-              <_ButtonSubmit onPress={this.onSubmit}>
-                Submit
-              </_ButtonSubmit>
-            </p>}
+          : <_ButtonSubmit onPress={this.onSubmit}>
+              Submit
+            </_ButtonSubmit>
+        }
       </View>
     );
   }
