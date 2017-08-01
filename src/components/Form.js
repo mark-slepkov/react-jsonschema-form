@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { View } from 'react-native';
 import PropTypes from "prop-types";
 
 import { default as DefaultErrorList } from "./ErrorList";
@@ -150,7 +151,6 @@ export default class Form extends Component {
       children,
       safeRenderCompletion,
       id,
-      className,
       name,
       method,
       target,
@@ -164,10 +164,9 @@ export default class Form extends Component {
     const { schema, uiSchema, formData, errorSchema, idSchema } = this.state;
     const registry = this.getRegistry();
     const _SchemaField = registry.fields.SchemaField;
-
+    const _ButtonSubmit = this.props.ButtonSubmit;
     return (
-      <form
-        className={className ? className : "rjsf"}
+      <View
         id={id}
         name={name}
         method={method}
@@ -177,7 +176,7 @@ export default class Form extends Component {
         encType={enctype}
         acceptCharset={acceptcharset}
         noValidate={noHtml5Validate}
-        onSubmit={this.onSubmit}>
+        >
         {this.renderErrors()}
         <_SchemaField
           schema={schema}
@@ -193,11 +192,11 @@ export default class Form extends Component {
         {children
           ? children
           : <p>
-              <button type="submit" className="btn btn-info">
+              <_ButtonSubmit onPress={this.onSubmit}>
                 Submit
-              </button>
+              </_ButtonSubmit>
             </p>}
-      </form>
+      </View>
     );
   }
 }
