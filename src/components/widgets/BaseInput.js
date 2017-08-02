@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {TextInput, Platform} from 'react-native'
+import {TextInput, Platform, View} from 'react-native'
 
 const IS_ANDROID = Platform.OS === 'android';
 
