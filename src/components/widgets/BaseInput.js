@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {TextInput} from 'react-native'
 
 function BaseInput(props) {
   // Note: since React 15.2.0 we can't forward unknown element attributes, so we
@@ -22,12 +23,12 @@ function BaseInput(props) {
     return props.onChange(value === "" ? options.emptyValue : value);
   };
   return (
-    <input
-      className="form-control"
+    <TextInput
+      ref={(ref) => this.textInputRef = ref}
       readOnly={readonly}
-      disabled={disabled}
+      disabled={disabled} 
       autoFocus={autofocus}
-      value={value == null ? "" : value}
+      value={value === null ? "" : value}
       {...inputProps}
       onChange={_onChange}
       onBlur={onBlur && (event => onBlur(inputProps.id, event.target.value))}

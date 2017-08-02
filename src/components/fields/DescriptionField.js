@@ -1,23 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { View, Text } from 'react-native';
 
 function DescriptionField(props) {
   const { id, description } = props;
   if (!description) {
     // See #312: Ensure compatibility with old versions of React.
-    return <div />;
+    return <View />;
   }
   if (typeof description === "string") {
     return (
-      <p id={id} className="field-description">
+      <Text id={id}>
         {description}
-      </p>
+      </Text>
     );
   } else {
     return (
-      <div id={id} className="field-description">
+      <Text id={id} >
         {description}
-      </div>
+      </Text>
     );
   }
 }

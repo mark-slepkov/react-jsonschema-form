@@ -63,7 +63,6 @@ export function getDefaultRegistry() {
 
 export function getWidget(schema, widget, registeredWidgets = {}) {
   const { type } = schema;
-
   function mergeOptions(Widget) {
     // cache return value as property of widget for proper react reconciliation
     if (!Widget.MergedWidget) {
@@ -74,7 +73,7 @@ export function getWidget(schema, widget, registeredWidgets = {}) {
     }
     return Widget.MergedWidget;
   }
-
+  alert(widget);
   if (typeof widget === "function") {
     return mergeOptions(widget);
   }

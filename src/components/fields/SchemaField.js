@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {View, Text} from 'react-native'
 
 import {
   isMultiSelect,
@@ -29,20 +30,23 @@ function getFieldComponent(schema, uiSchema, fields) {
   if (typeof field === "string" && field in fields) {
     return fields[field];
   }
+  
   const componentName = COMPONENT_TYPES[schema.type];
-  return componentName in fields ? fields[componentName] : UnsupportedField;
+
+  const cmp = componentName in fields ? fields[componentName] : UnsupportedField;
+  return cmp
 }
 
 function Label(props) {
   const { label, required, id } = props;
   if (!label) {
     // See #312: Ensure compatibility with old versions of React.
-    return <div />;
+    return <View />;
   }
   return (
-    <label className="control-label" htmlFor={id}>
-      {required ? label + REQUIRED_FIELD_SYMBOL : label}
-    </label>
+    <View htmlFor={id}>
+      <Text>{required ? label + REQUIRED_FIELD_SYMBOL : label}</Text>
+    </View>
   );
 }
 
@@ -50,40 +54,40 @@ function Help(props) {
   const { help } = props;
   if (!help) {
     // See #312: Ensure compatibility with old versions of React.
-    return <div />;
+    return <View />;
   }
   if (typeof help === "string") {
     return (
-      <p className="help-block">
+      <Text>
         {help}
-      </p>
+      </Text>
     );
   }
   return (
-    <div className="help-block">
-      {help}
-    </div>
+    <View>
+      <Text>{help}</Text>
+    </View>
   );
 }
 
 function ErrorList(props) {
   const { errors = [] } = props;
   if (errors.length === 0) {
-    return <div />;
+    return <View />;
   }
   return (
-    <div>
-      <p />
-      <ul className="error-detail bs-callout bs-callout-info">
+    <View>
+      <View />
+      <View>
         {errors.map((error, index) => {
           return (
-            <li className="text-danger" key={index}>
+            <Text key={index}>
               {error}
-            </li>
+            </Text>
           );
         })}
-      </ul>
-    </div>
+      </View>
+    </View>
   );
 }
 
@@ -103,15 +107,14 @@ function DefaultTemplate(props) {
   if (hidden) {
     return children;
   }
-
   return (
-    <div className={classNames}>
+    <View>
       {displayLabel && <Label label={label} required={required} id={id} />}
       {displayLabel && description ? description : null}
       {children}
       {errors}
       {help}
-    </div>
+    </View>
   );
 }
 
@@ -167,7 +170,7 @@ function SchemaFieldRender(props) {
 
   if (Object.keys(schema).length === 0) {
     // See #312: Ensure compatibility with old versions of React.
-    return <div />;
+    return <View />;
   }
 
   const uiOptions = getUiOptions(uiSchema);
@@ -202,6 +205,7 @@ function SchemaFieldRender(props) {
       formContext={formContext}
     />
   );
+  
 
   const { type } = schema;
   const id = idSchema.$id;
@@ -249,7 +253,6 @@ function SchemaFieldRender(props) {
     schema,
     uiSchema,
   };
-
   return (
     <FieldTemplate {...fieldProps}>
       {field}
@@ -268,6 +271,7 @@ class SchemaField extends React.Component {
   }
 
   render() {
+
     return SchemaFieldRender(this.props);
   }
 }

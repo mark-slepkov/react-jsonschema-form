@@ -31,6 +31,7 @@ function StringField(props) {
   const { widget = defaultWidget, placeholder = "", ...options } = getUiOptions(
     uiSchema
   );
+
   const Widget = getWidget(schema, widget, widgets);
 
   return (

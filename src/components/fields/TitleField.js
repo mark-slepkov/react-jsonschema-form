@@ -7,9 +7,11 @@ function TitleField(props) {
   const { id, title, required } = props;
   const legend = required ? title + REQUIRED_FIELD_SYMBOL : title;
   return (
-    <legend id={id}>
-      {legend}
-    </legend>
+    <View>
+      <Text>
+        {legend}
+      </Text>
+    </View>
   );
 }
 

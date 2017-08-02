@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
+import { View, Text } from 'react-native';
 import {
   orderProperties,
   retrieveSchema,
@@ -33,6 +33,7 @@ class ObjectField extends Component {
   };
 
   render() {
+    
     const {
       uiSchema,
       formData,
@@ -50,31 +51,35 @@ class ObjectField extends Component {
     const schema = retrieveSchema(this.props.schema, definitions);
     const title = schema.title === undefined ? name : schema.title;
     let orderedProperties;
+
     try {
       const properties = Object.keys(schema.properties);
       orderedProperties = orderProperties(properties, uiSchema["ui:order"]);
     } catch (err) {
       return (
-        <div>
-          <p className="config-error" style={{ color: "red" }}>
-            Invalid {name || "root"} object field configuration:
-            <em>{err.message}</em>.
-          </p>
-          <pre>
+        <View>
+          <View style={{ color: "red" }}>
+            <Text> 
+              Invalid {name || "root"} object field configuration:
+            </Text>
+            <Text>{err.message}</Text>.
+          </View>
+          <Text>
             {JSON.stringify(schema)}
-          </pre>
-        </div>
+          </Text>
+        </View>
       );
     }
     return (
-      <fieldset>
+      <View>
         {(uiSchema["ui:title"] || title) &&
           <TitleField
             id={`${idSchema.$id}__title`}
             title={title || uiSchema["ui:title"]}
             required={required}
             formContext={formContext}
-          />}
+          />
+          }
         {(uiSchema["ui:description"] || schema.description) &&
           <DescriptionField
             id={`${idSchema.$id}__description`}
@@ -100,7 +105,7 @@ class ObjectField extends Component {
             />
           );
         })}
-      </fieldset>
+      </View>
     );
   }
 }

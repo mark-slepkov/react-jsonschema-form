@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 
 export default class ErrorList extends React.Component {
     render() {
-        const {errors} = props;
+        const {errors} = this.props;
         return (
             <View>
                 <Text>Errors</Text>
