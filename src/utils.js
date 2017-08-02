@@ -73,7 +73,6 @@ export function getWidget(schema, widget, registeredWidgets = {}) {
     }
     return Widget.MergedWidget;
   }
-  alert(widget);
   if (typeof widget === "function") {
     return mergeOptions(widget);
   }
