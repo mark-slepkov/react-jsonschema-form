@@ -40,7 +40,7 @@ function BaseInput(props) {
   } = props;
 
   inputProps.type = options.inputType || inputProps.type || "text";
-  const _onChange = ({ target: { value } }) => {
+  const _onChange = (value) => {
     return props.onChange(value === "" ? options.emptyValue : value);
   };
   return (
