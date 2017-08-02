@@ -1,6 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {TextInput} from 'react-native'
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 2,
+    marginBottom: 10,
+  },
+  textInputWrapper: {
+    height: 42,
+    marginBottom: 2,
+    borderBottomWidth: 1,
+  },
+  textInput: {
+    flex: 1,
+    color: 'white',
+    margin: IS_ANDROID ? -1 : 0,
+    height: 42,
+    padding: 7,
+  }
+});
 
 function BaseInput(props) {
   // Note: since React 15.2.0 we can't forward unknown element attributes, so we
@@ -23,16 +41,21 @@ function BaseInput(props) {
     return props.onChange(value === "" ? options.emptyValue : value);
   };
   return (
-    <TextInput
-      ref={(ref) => this.textInputRef = ref}
-      readOnly={readonly}
-      disabled={disabled} 
-      autoFocus={autofocus}
-      value={value === null ? "" : value}
-      {...inputProps}
-      onChangeText={_onChange}
-      onBlur={onBlur && (event => onBlur(inputProps.id, event.target.value))}
-    />
+      <View style={styles.container}>
+        <View style={[styles.textInputWrapper, { borderColor }]}>
+          <TextInput
+            ref={(ref) => this.textInputRef = ref}
+            readOnly={readonly}
+            disabled={disabled}
+            style={[styles.textInput]}
+            autoFocus={autofocus}
+            value={value === null ? "" : value}
+            {...inputProps}
+            onChangeText={_onChange}
+            onBlur={onBlur && (event => onBlur(inputProps.id, event.target.value))}
+          />
+        </View>
+      </View>
   );
 }
 
