@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {TextInput} from 'react-native'
-const styles = StyleSheet.create({
+import {TextInput, Platform} from 'react-native'
+
+const IS_ANDROID = Platform.OS === 'android';
+
+const styles = {
   container: {
     marginTop: 2,
     marginBottom: 10,
@@ -18,7 +21,7 @@ const styles = StyleSheet.create({
     height: 42,
     padding: 7,
   }
-});
+};
 
 function BaseInput(props) {
   // Note: since React 15.2.0 we can't forward unknown element attributes, so we
