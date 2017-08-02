@@ -45,7 +45,7 @@ function BaseInput(props) {
   };
   return (
       <View style={styles.container}>
-        <View style={[styles.textInputWrapper, { borderColor }]}>
+        <View style={[styles.textInputWrapper]}>
           <TextInput
             ref={(ref) => this.textInputRef = ref}
             readOnly={readonly}
