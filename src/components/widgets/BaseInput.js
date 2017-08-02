@@ -16,7 +16,7 @@ const styles = {
   },
   textInput: {
     flex: 1,
-    color: 'white',
+    color: 'gray',
     margin: IS_ANDROID ? -1 : 0,
     height: 42,
     padding: 7,
