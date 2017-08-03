@@ -77,16 +77,13 @@ function ErrorList(props) {
   }
   return (
     <View>
-      <View />
-      <View>
         {errors.map((error, index) => {
           return (
-            <Text key={index}>
+            <Text style={{color: '#ffbb00'}} key={index}>
               {error}
             </Text>
           );
         })}
-      </View>
     </View>
   );
 }
