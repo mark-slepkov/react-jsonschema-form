@@ -7,8 +7,8 @@ export default class ErrorList extends React.Component {
         const {errors} = this.props;
         return (
             <View>
-                <Text>Errors</Text>
-                <View>
+                <Text style={{color: "#ff0000"}}>Errors</Text>
+                <View style={{color: "#ff6666"}}>
                     {errors.map((error, i) => {
                         return (
                             <Text key={i}>
