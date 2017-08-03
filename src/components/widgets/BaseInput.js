@@ -48,7 +48,8 @@ function BaseInput(props) {
         <View style={[styles.textInputWrapper]}>
           <TextInput
             ref={(ref) => this.textInputRef = ref}
-            readOnly={readonly}
+            editable={!readonly}
+            returnKeyType={'next'}
             disabled={disabled}
             style={[styles.textInput]}
             autoFocus={autofocus}
