@@ -11,8 +11,7 @@ const styles = {
   },
   textInputWrapper: {
     height: 42,
-    marginBottom: 2,
-    borderBottomWidth: 1,
+    marginBottom: 2
   },
   textInput: {
     flex: 1,
