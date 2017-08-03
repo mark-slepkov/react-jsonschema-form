@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 
 export default class ErrorList extends React.Component {
@@ -8,10 +8,10 @@ export default class ErrorList extends React.Component {
         return (
             <View>
                 <Text style={{color: "#ff0000"}}>Errors</Text>
-                <View style={{color: "#ff6666"}}>
+                <View>
                     {errors.map((error, i) => {
                         return (
-                            <Text key={i}>
+                            <Text style={{color: "#ff6666"}} key={i}>
                                 {error.stack}
                             </Text>
                         );
