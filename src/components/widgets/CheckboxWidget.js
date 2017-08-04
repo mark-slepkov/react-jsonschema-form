@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import DescriptionField from "../fields/DescriptionField.js";
 import {View, Text} from 'react-native';
-import {Checkbox} from 'react-native-material-design';
+// import {Checkbox} from 'react-native-material-design';
 
 
 function CheckboxWidget(props) {
@@ -22,14 +22,14 @@ function CheckboxWidget(props) {
             {schema.description &&
             <DescriptionField description={schema.description}/>}
             <View>
-                <Checkbox
-                    id={id}
-                    checked={typeof value === "undefined" ? false : value}
-                    required={required}
-                    disabled={disabled || readonly}
-                    autoFocus={autofocus}
-                    onChange={event => onChange(event.target.checked)}
-                />
+                {/*<Checkbox*/}
+                    {/*id={id}*/}
+                    {/*checked={typeof value === "undefined" ? false : value}*/}
+                    {/*required={required}*/}
+                    {/*disabled={disabled || readonly}*/}
+                    {/*autoFocus={autofocus}*/}
+                    {/*onChange={event => onChange(event.target.checked)}*/}
+                {/*/>*/}
                 <Text>
                     {label}
                 </Text>
