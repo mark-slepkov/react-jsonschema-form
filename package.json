@@ -44,6 +44,8 @@
     "jsonschema": "^1.0.2",
     "lodash.topath": "^4.5.2",
     "prop-types": "^15.5.8",
+    "react-native": "^0.47.1",
+    "react-native-material-design": "^0.3.7",
     "setimmediate": "^1.0.5"
   },
   "devDependencies": {
